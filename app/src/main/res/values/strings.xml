@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Film Collection</string>
+    <string name="app_name">| Film Collection |</string>
     <string name="My_API_KEY">c0f9309d</string>
     <string name="search_title">Search</string>
     <string name="add_movies_to_db">Add Movies to DB</string>
@@ -12,4 +12,5 @@
     <string name="search_movie">Search</string>
     <string name="filter_movies">Filter Movies</string>
     <string name="application_logo">Application Logo</string>
+    <string name="database_title">Database Table Data values</string>
 </resources>

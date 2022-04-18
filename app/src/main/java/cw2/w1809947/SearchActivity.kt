@@ -94,8 +94,8 @@ class SearchActivity : AppCompatActivity() {
         } else {
             outState.putBoolean("SaveData", false)
         }
-
         outState.putString("MovieDetails", resultsBox?.text.toString())
+
         writtenData = searchBox!!.text.toString()
         outState.putCharSequence("MySavedData", writtenData)
 
@@ -103,7 +103,9 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun getMovie() {
-        val movie = searchBox!!.text.toString().trim()
+        // !! - converts any value to a non-null type and throws an exception if the value is null
+        // trim() - removes whitespace from both ends of a string
+        val movie = searchBox!!.text.toString().lowercase().trim()
         if (movie  == "")
             return
 
@@ -111,7 +113,7 @@ class SearchActivity : AppCompatActivity() {
         urlString = "https://www.omdbapi.com/?t=$movie&apikey=$MY_API_KEY"
 
 
-        // Start fetching data in the background
+        // Start fetching data in the background - Not in main thread
         runBlocking {
             withContext(Dispatchers.IO){
                 // whole JSON data

@@ -32,6 +32,7 @@ class ActorSearchActivity : AppCompatActivity() {
             getActorMovie()
         }
 
+        // Loading saved instance values
         if (savedInstanceState != null) {
             val landBtn = savedInstanceState.getBoolean("SaveBtn")
             val landSearch = savedInstanceState.getCharSequence("MySavedData")

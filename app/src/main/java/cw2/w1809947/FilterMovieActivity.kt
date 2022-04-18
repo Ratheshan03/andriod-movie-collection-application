@@ -74,12 +74,14 @@ class FilterMovieActivity : AppCompatActivity() {
     }
 
     private fun getMovie() {
-        val movie = searchBox!!.text.toString().trim()
+        // !! - converts any value to a non-null type and throws an exception if the value is null
+        // trim() - removes whitespace from both ends of a string
+        val movie = searchBox!!.text.toString().lowercase().trim()
         if (movie  == "")
             return
 
         // Setting up the fetching URL for the web service
-        urlString = "https://www.omdbapi.com/?s=${movie}&apikey=${MY_API_KEY}"
+        urlString = "https://www.omdbapi.com/?s=${movie}*&apikey=${MY_API_KEY}"
 
         // Start fetching data in the background
         runBlocking {
@@ -123,6 +125,8 @@ class FilterMovieActivity : AppCompatActivity() {
     }
 
     private fun parseJSON(stb: StringBuilder): ArrayList<String> {
+        // Emptying results
+        movieTitles.clear()
         // Extracting the actual data from the JSON data
         val json = JSONObject(stb.toString())
         val sArray = json.getJSONArray("Search")
@@ -132,12 +136,11 @@ class FilterMovieActivity : AppCompatActivity() {
             val movieTitle = movies["Title"] as String
             movieTitles.add(movieTitle)
         }
-
-//        val allResults = json["totalResults"] as String
-//        println("*************************")
-//        println(allResults)
-//        movieTitles.add(allResults)
+        val allResults = json["totalResults"] as String
+        val NoOfResults = "\nTotal retrieved results: $allResults"
+        movieTitles.add(NoOfResults)
 
         return movieTitles
     }
 }
+

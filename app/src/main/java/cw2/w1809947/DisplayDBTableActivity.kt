@@ -10,7 +10,7 @@ import kotlinx.coroutines.runBlocking
 class DisplayDBTableActivity : AppCompatActivity() {
     lateinit var dbTitle: TextView
     lateinit var tableData: TextView
-    lateinit var copyright: TextView
+    lateinit var copyRightText: TextView
     private val dbData: ArrayList<String> = ArrayList()
     private var result = ""
 
@@ -20,10 +20,30 @@ class DisplayDBTableActivity : AppCompatActivity() {
 
         dbTitle = findViewById(R.id.tableTitle)
         tableData = findViewById(R.id.tableData)
-        copyright = findViewById(R.id.copyright)
+        copyRightText = findViewById(R.id.copyright)
+
+        // Loading saved preferences
+        if (savedInstanceState != null) {
+            val tableTitle = savedInstanceState.getString("dbTitle")
+            val dbValues = savedInstanceState.getString("tableValues")
+            val copyRight = savedInstanceState.getString("copyRight")
+
+            dbTitle.text = tableTitle
+            tableData.text = dbValues
+            copyRightText.text = copyRight
+
+        }
 
         // Displaying the movie list in the Database
         displaymovieList()
+    }
+
+    // Saving the state of the activity when the orientation changes.
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("dbTitle", dbTitle.text.toString())
+        outState.putString("tableValues", tableData.text.toString())
+        outState.putString("copyRight", copyRightText.text.toString())
     }
 
     fun displaymovieList(){

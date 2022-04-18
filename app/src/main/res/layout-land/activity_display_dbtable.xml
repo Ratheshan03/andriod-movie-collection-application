@@ -10,22 +10,23 @@
         android:id="@+id/tableTitle"
         android:layout_width="236dp"
         android:layout_height="32dp"
-        android:text="Database Table Data values"
+        android:text="@string/database_title"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.042" />
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="328dp"
-        android:layout_height="577dp"
+        android:layout_width="480dp"
+        android:layout_height="257dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -45,8 +46,9 @@
         android:text="©MovieHub:2022"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.968" />
+        app:layout_constraintVertical_bias="0.959" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

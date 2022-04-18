@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             displayFilterMoviePage()
         }
 
+        // Loading the stored states of the view widgets
         if (savedInstanceState != null) {
             val logo2 = savedInstanceState.getBoolean("ImageLogo")
             val button1 = savedInstanceState.getBoolean("Btn1IsEnabled")
